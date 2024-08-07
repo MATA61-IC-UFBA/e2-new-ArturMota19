@@ -2,20 +2,14 @@
 
 %option noyywrap nodefault yylineno
 %{
-#include "token.h"
+#include "e2.tab.h"
 
+void yyerror(char *s, ...);
 %}
 
 %%
 
 .       { return ERROR; }
 %%
-
-int main() {
-
-
-}
-
-
 
 
