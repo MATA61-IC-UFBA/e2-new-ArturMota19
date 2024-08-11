@@ -2,14 +2,19 @@
 
 %option noyywrap nodefault yylineno
 %{
-#include "e2.tab.h"
+#include "token.h"
 
-void yyerror(char *s, ...);
 %}
 
 %%
 
-.       { return ERROR; }
+"+" 	{ return PLUS; }
+"-" 	{ return MINUS; }
+"*" 	{ return TIMES; }
+"/" 	{ return DIV; }
+
+[0-9]+ 	{ return NUMBER; } 
+[ \t] 	{ /* ignore white space */ }
+\n      { return EOL; }
+.   	{ return ERROR; }
 %%
-
-
